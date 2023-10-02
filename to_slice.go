@@ -1,16 +1,16 @@
-package goiter
+package iter
 
 // ToSlice converts iter to a slice.
 //
 // Example:
 //
-//	goiter.ToSlice(goiter.FromValues(1, 2, 3))
+//	iter.ToSlice(iter.FromValues(1, 2, 3))
 //
 // Produces []int with values 1, 2, 3.
-func ToSlice[T any](iter Iterable[T]) []T {
+func ToSlice[T any](it Iterable[T]) []T {
 	var slice []T
 	for {
-		t, ok := iter.Next()
+		t, ok := it.Next()
 		if !ok {
 			return slice
 		}

@@ -1,14 +1,14 @@
-package goiter_test
+package iter_test
 
 import (
 	"testing"
 
-	"github.com/hoshiumiarata/goiter"
+	"github.com/hoshiumiarata/go-iter"
 )
 
 func TestEmpty(t *testing.T) {
-	iter := goiter.Empty[any]()
-	slice := goiter.ToSlice(iter)
+	it := iter.Empty[any]()
+	slice := iter.ToSlice(it)
 	if len(slice) != 0 {
 		t.Errorf("expected empty slice, got %v", slice)
 	}

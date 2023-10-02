@@ -1,15 +1,15 @@
-package goiter_test
+package iter_test
 
 import (
 	"reflect"
 	"testing"
 
-	"github.com/hoshiumiarata/goiter"
+	"github.com/hoshiumiarata/go-iter"
 )
 
 func TestToMap(t *testing.T) {
-	iter := goiter.FromValues(goiter.MapKV[string, string]{"a", "0"}, goiter.MapKV[string, string]{"b", "1"}, goiter.MapKV[string, string]{"c", "2"})
-	m := goiter.ToMap(iter)
+	it := iter.FromValues(iter.MapKV[string, string]{"a", "0"}, iter.MapKV[string, string]{"b", "1"}, iter.MapKV[string, string]{"c", "2"})
+	m := iter.ToMap(it)
 	expected := map[string]string{
 		"a": "0",
 		"b": "1",

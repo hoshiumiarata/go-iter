@@ -1,4 +1,4 @@
-package goiter
+package iter
 
 type fromSlice[T any] struct {
 	slice []T
@@ -20,7 +20,7 @@ func (f *fromSlice[T]) Next() (t T, ok bool) {
 //
 // Example:
 //
-//	goiter.FromSlice([]int{1, 2, 3})
+//	iter.FromSlice([]int{1, 2, 3})
 //
 // Produces Iterable[int] with values 1, 2, 3.
 func FromSlice[T any](slice []T) Iterable[T] {

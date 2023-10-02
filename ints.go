@@ -1,4 +1,4 @@
-package goiter
+package iter
 
 type ints struct {
 	start, end, current int
@@ -17,7 +17,7 @@ func (i *ints) Next() (int, bool) {
 //
 // Example:
 //
-//	goiter.Ints(0, 5)
+//	iter.Ints(0, 5)
 //
 // Produces Iterable[int] with values 0, 1, 2, 3, 4.
 func Ints(start, end int) Iterable[int] {

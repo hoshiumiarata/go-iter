@@ -1,14 +1,14 @@
-package goiter
+package iter
 
 type filter[T any] struct {
-	iter Iterable[T]
+	it   Iterable[T]
 	cond func(T) bool
 }
 
 // Next returns the next element in the Iterable and whether it exists.
 func (f *filter[T]) Next() (t T, ok bool) {
 	for {
-		t, ok = f.iter.Next()
+		t, ok = f.it.Next()
 		if !ok {
 			return
 		}
@@ -22,14 +22,14 @@ func (f *filter[T]) Next() (t T, ok bool) {
 //
 // Example:
 //
-//	goiter.Filter(goiter.Ints(0, 5), func(i int) bool {
+//	iter.Filter(iter.Ints(0, 5), func(i int) bool {
 //	  return i % 2 == 0
 //	})
 //
 // Produces Iterable[int] with values 0, 2, 4.
-func Filter[T any](iter Iterable[T], cond func(T) bool) Iterable[T] {
+func Filter[T any](it Iterable[T], cond func(T) bool) Iterable[T] {
 	return &filter[T]{
-		iter: iter,
+		it:   it,
 		cond: cond,
 	}
 }

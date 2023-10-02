@@ -1,16 +1,16 @@
-package goiter_test
+package iter_test
 
 import (
 	"reflect"
 	"testing"
 
-	"github.com/hoshiumiarata/goiter"
+	"github.com/hoshiumiarata/go-iter"
 )
 
 func TestWithIndex(t *testing.T) {
-	iter := goiter.WithIndex(goiter.FromValues("a", "b", "c"))
-	slice := goiter.ToSlice(iter)
-	expected := []goiter.MapKV[int, string]{
+	it := iter.WithIndex(iter.FromValues("a", "b", "c"))
+	slice := iter.ToSlice(it)
+	expected := []iter.MapKV[int, string]{
 		{0, "a"},
 		{1, "b"},
 		{2, "c"},

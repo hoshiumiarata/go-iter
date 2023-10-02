@@ -1,4 +1,4 @@
-package goiter
+package iter
 
 type generator[T any] struct {
 	g func() (T, bool)
@@ -14,7 +14,7 @@ func (g *generator[T]) Next() (t T, ok bool) {
 // Example:
 //
 //	i := 0
-//	goiter.Generator(func() (int, bool) {
+//	iter.Generator(func() (int, bool) {
 //	  if i >= 5 {
 //	    return 0, false
 //	  }

@@ -1,19 +1,19 @@
-package goiter
+package iter
 
 // ToMap converts iter to a map.
 //
 // Example:
 //
-//	goiter.ToMap(goiter.FromValues(
-//	  goiter.MapKV{K: "a", V: 1},
-//	  goiter.MapKV{K: "b", V: 2},
+//	iter.ToMap(iter.FromValues(
+//	  iter.MapKV{K: "a", V: 1},
+//	  iter.MapKV{K: "b", V: 2},
 //	))
 //
 // Produces map[string]int with values {"a": 1, "b": 2}.
-func ToMap[K comparable, V any](iter Iterable[MapKV[K, V]]) map[K]V {
+func ToMap[K comparable, V any](it Iterable[MapKV[K, V]]) map[K]V {
 	m := make(map[K]V)
 	for {
-		kv, ok := iter.Next()
+		kv, ok := it.Next()
 		if !ok {
 			return m
 		}

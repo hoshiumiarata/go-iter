@@ -1,16 +1,16 @@
-package goiter_test
+package iter_test
 
 import (
 	"reflect"
 	"testing"
 
-	"github.com/hoshiumiarata/goiter"
+	"github.com/hoshiumiarata/go-iter"
 )
 
 func TestTake(t *testing.T) {
-	iter := goiter.Ints(0, 5)
-	take := goiter.Take(iter, 3)
-	slice := goiter.ToSlice(take)
+	it := iter.Ints(0, 5)
+	take := iter.Take(it, 3)
+	slice := iter.ToSlice(take)
 	expected := []int{0, 1, 2}
 	if !reflect.DeepEqual(slice, expected) {
 		t.Errorf("expected %v, got %v", expected, slice)

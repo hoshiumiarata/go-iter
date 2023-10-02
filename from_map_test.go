@@ -1,20 +1,20 @@
-package goiter_test
+package iter_test
 
 import (
 	"reflect"
 	"testing"
 
-	"github.com/hoshiumiarata/goiter"
+	"github.com/hoshiumiarata/go-iter"
 )
 
 func TestFromMap(t *testing.T) {
-	iter := goiter.FromMap(map[int]string{
+	it := iter.FromMap(map[int]string{
 		0: "a",
 		1: "b",
 		2: "c",
 	})
 
-	m := goiter.ToMap(iter)
+	m := iter.ToMap(it)
 	expected := map[int]string{
 		0: "a",
 		1: "b",

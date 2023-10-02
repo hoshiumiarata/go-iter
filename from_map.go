@@ -1,4 +1,4 @@
-package goiter
+package iter
 
 type mapIter[K comparable, V any] struct {
 	m map[K]V
@@ -19,7 +19,7 @@ func (m *mapIter[K, V]) Next() (kv MapKV[K, V], ok bool) {
 //
 // Example:
 //
-//	goiter.FromMap(map[string]int{
+//	iter.FromMap(map[string]int{
 //	  "a": 1,
 //	  "b": 2,
 //	})

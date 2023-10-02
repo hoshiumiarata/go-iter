@@ -1,4 +1,4 @@
-package goiter
+package iter
 
 // Iterable is an interface for types that can be iterated over.
 type Iterable[T any] interface {

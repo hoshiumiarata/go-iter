@@ -1,4 +1,4 @@
-package goiter
+package iter
 
 type empty[T any] struct{}
 
@@ -10,7 +10,7 @@ func (e *empty[T]) Next() (t T, ok bool) {
 //
 // Example:
 //
-//	goiter.Empty[any]()
+//	iter.Empty[any]()
 //
 // Produces Iterable[any] with no values.
 func Empty[T any]() Iterable[T] {

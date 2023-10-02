@@ -1,8 +1,8 @@
-package goiter
+package iter
 
 type take[T any] struct {
-	iter Iterable[T]
-	n    int
+	it Iterable[T]
+	n  int
 }
 
 // Next returns the next element in the Iterable and whether it exists.
@@ -11,19 +11,19 @@ func (t *take[T]) Next() (v T, ok bool) {
 		return
 	}
 	t.n--
-	return t.iter.Next()
+	return t.it.Next()
 }
 
 // Take returns an Iterable that only returns the first n elements from iter.
 //
 // Example:
 //
-//	goiter.Take(goiter.Ints(0, 5), 2)
+//	iter.Take(iter.Ints(0, 5), 2)
 //
 // Produces Iterable[int] with values 0, 1.
-func Take[T any](iter Iterable[T], n int) Iterable[T] {
+func Take[T any](it Iterable[T], n int) Iterable[T] {
 	return &take[T]{
-		iter: iter,
-		n:    n,
+		it: it,
+		n:  n,
 	}
 }
