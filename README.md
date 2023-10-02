@@ -1,9 +1,15 @@
-# go-iter
+# iter
 
-This package package that provides a set of functions for working with strongly typed iterators.
+This package that provides a set of functions for working with strongly typed iterators.
 It can be used to work with any type that implements the Iterable interface.
 It also can be extended with custom functions.
 Check out [documentation](https://pkg.go.dev/github.com/hoshiumiarata/go-iter) for more information.
+
+## Installation
+
+```bash
+go get github.com/hoshiumiarata/go-iter
+```
 
 ## Example
 
