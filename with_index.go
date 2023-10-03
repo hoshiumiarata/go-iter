@@ -6,7 +6,7 @@ type withIndex[T any] struct {
 }
 
 // Next returns the next T in the Iterable and whether it exists.
-func (w *withIndex[T]) Next() (kv MapKV[int, T], ok bool) {
+func (w *withIndex[T]) Next() (kv KV[int, T], ok bool) {
 	t, ok := w.it.Next()
 	if !ok {
 		return
@@ -23,7 +23,7 @@ func (w *withIndex[T]) Next() (kv MapKV[int, T], ok bool) {
 //
 //	iter.WithIndex(iter.FromValues("a", "b", "c"))
 //
-// Produces Iterable[MapKV[int, string]] with values {0, "a"}, {1, "b"}, {2, "c"}.
-func WithIndex[T any](it Iterable[T]) Iterable[MapKV[int, T]] {
+// Produces Iterable[KV[int, string]] with values {0, "a"}, {1, "b"}, {2, "c"}.
+func WithIndex[T any](it Iterable[T]) Iterable[KV[int, T]] {
 	return &withIndex[T]{it, 0}
 }

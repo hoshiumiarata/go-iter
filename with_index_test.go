@@ -10,7 +10,7 @@ import (
 func TestWithIndex(t *testing.T) {
 	it := iter.WithIndex(iter.FromValues("a", "b", "c"))
 	slice := iter.ToSlice(it)
-	expected := []iter.MapKV[int, string]{
+	expected := []iter.KV[int, string]{
 		{0, "a"},
 		{1, "b"},
 		{2, "c"},

@@ -8,7 +8,7 @@ import (
 )
 
 func TestToMap(t *testing.T) {
-	it := iter.FromValues(iter.MapKV[string, string]{"a", "0"}, iter.MapKV[string, string]{"b", "1"}, iter.MapKV[string, string]{"c", "2"})
+	it := iter.FromValues(iter.KV[string, string]{"a", "0"}, iter.KV[string, string]{"b", "1"}, iter.KV[string, string]{"c", "2"})
 	m := iter.ToMap(it)
 	expected := map[string]string{
 		"a": "0",
