@@ -2,7 +2,7 @@ package iter
 
 type filter[T any] struct {
 	it   Iterable[T]
-	cond func(T) bool
+	pred func(T) bool
 }
 
 // Next returns the next element in the Iterable and whether it exists.
@@ -12,13 +12,13 @@ func (f *filter[T]) Next() (t T, ok bool) {
 		if !ok {
 			return
 		}
-		if f.cond(t) {
+		if f.pred(t) {
 			return
 		}
 	}
 }
 
-// Filter returns an Iterable that only returns elements from iter that satisfy cond.
+// Filter returns an Iterable that only returns elements from iter that satisfy pred.
 //
 // Example:
 //
@@ -27,9 +27,9 @@ func (f *filter[T]) Next() (t T, ok bool) {
 //	})
 //
 // Produces Iterable[int] with values 0, 2, 4.
-func Filter[T any](it Iterable[T], cond func(T) bool) Iterable[T] {
+func Filter[T any](it Iterable[T], pred func(T) bool) Iterable[T] {
 	return &filter[T]{
 		it:   it,
-		cond: cond,
+		pred: pred,
 	}
 }

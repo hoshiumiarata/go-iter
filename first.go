@@ -1,6 +1,6 @@
 package iter
 
-// First returns the first element of an iterable that satisfies a condition.
+// First returns the first element of an iterable that satisfies a predicate.
 //
 // Example:
 //
@@ -9,13 +9,13 @@ package iter
 //	})
 //
 // Produces 2, true.
-func First[T any](it Iterable[T], cond func(T) bool) (T, bool) {
+func First[T any](it Iterable[T], pred func(T) bool) (T, bool) {
 	for {
 		t, ok := it.Next()
 		if !ok {
 			return t, false
 		}
-		if cond(t) {
+		if pred(t) {
 			return t, true
 		}
 	}
